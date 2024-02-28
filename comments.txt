@@ -1,0 +1,223 @@
+
+# mat = create_mat()
+#
+# n_cck, n_chc = 0,0
+# li = []
+# for i in range(len(mat)):
+#     if mat[i][0][1] == 'CCK' :
+#         li.append(mat[i])
+#         n_cck +=1
+# for i in range(len(mat)):
+#     if mat[i][0][1] == 'CHC' :
+#         li.append(mat[i])
+#         n_chc += 1
+
+# q_80 = np.percentile(vect, 80)
+# q_20 = np.percentile(vect, 20)
+# data = [x for x in vect if q_20 <= x <= q_80]
+# ecart_type = np.std(data)
+# vect = vect / ecart_type
+
+
+# plt.figure()
+# histo_chc , histo_cck = [],[]
+# g_chc, g_cck = [],[]
+# max_li1, max_li2 = [], []
+# l_phi1, l_phi2 = [], []
+# for i in range(len(li)):
+#     for j in range(1,5):
+#         li[i][j] = np.array(li[i][j])
+#     l_phi1.append(li[i][4]-li[i][2])
+#     l_phi2.append(li[i][3] - li[i][1])
+#
+# for i in range(len(l_phi1)):
+#     max_li1.append(max(l_phi1[i]))
+#     max_li2.append(max(l_phi2[i]))
+#
+# l1, l2 = max_li1, max_li2
+# l1, l2 =  np.array(l1), np.array(l2)
+# q_80_1 , q_80_2 = np.percentile(l1, 80) , np.percentile(l2, 80)
+# q_20_1 , q_20_2 = np.percentile(l1, 20) , np.percentile(l2, 20)
+# data_1 , data_2= [x for x in l1 if q_20_1<= x <= q_80_1] , [i for i in l2 if q_20_2<= i <= q_80_2]
+# ecart_type_1 , ecart_type_2 = np.std(data_1) , np.std(data_2)
+# l1 , l2 = l1/ecart_type_1, l2 /ecart_type_2
+#
+#
+#
+# plt.figure()
+# # xchc,xcck = [i+1 for i in range(n_chc)],[j+1 for j in range(n_cck)]
+# plt.scatter(l1[n_cck:], l2[n_cck:], color = "b", label='CHC')
+# plt.scatter(l1[:n_cck], l2[:n_cck], color = "r", label='CCK')
+# plt.legend()
+# plt.savefig(f"graph/vect_max_phi/4-2_3-1")
+# plt.show()
+# plt.close()
+
+
+
+# lcck1, lchc1 = max_li1[:n_cck], max_li1[n_cck:]
+# lcck1, lchc1 =  np.array(lcck1), np.array(lchc1)
+# q_80_chc1 , q_80_cck1 = np.percentile(lchc1, 80) , np.percentile(lcck1, 80)
+# q_20_chc1 , q_20_cck1 = np.percentile(lchc1, 20) , np.percentile(lcck1, 20)
+# data_chc1 , data_cck1 = [x for x in lchc1 if q_20_chc1<= x <= q_80_chc1] , [i for i in lcck1 if q_20_cck1<= i <= q_80_cck1]
+# ecart_type_chc1 , ecart_type_cck1 = np.std(data_chc1) , np.std(data_cck1)
+# lchc1 , lcck1 = lchc1/ecart_type_chc1, lcck1 /ecart_type_cck1
+#
+# lcck2, lchc2 = max_li2[:n_cck], max_li2[n_cck:]
+# lcck2, lchc2 =  np.array(lcck2), np.array(lchc2)
+# q_80_chc2 , q_80_cck2 = np.percentile(lchc2, 80) , np.percentile(lcck2, 80)
+# q_20_chc2 , q_20_cck2 = np.percentile(lchc2, 20) , np.percentile(lcck2, 20)
+# data_chc2 , data_cck2 = [x for x in lchc2 if q_20_chc2<= x <= q_80_chc2] , [i for i in lcck2 if q_20_cck2<= i <= q_80_cck2]
+# ecart_type_chc2 , ecart_type_cck2 = np.std(data_chc2) , np.std(data_cck2)
+# lchc2 , lcck2 = lchc2/ecart_type_chc2, lcck2 /ecart_type_cck2
+
+
+
+# plt.figure()
+# histo_chc , histo_cck = [],[]
+# g_chc, g_cck = [],[]
+# for k in range(107):
+#     lcck , lchc = [], []
+#     xcck, xchc = [], []
+#     for i in range(len(mat)):
+#         if mat[i][0][1] == "CCK" :
+#             lcck.append(mat[i][4][k]-mat[i][3][k])
+#             xcck.append(mat[i][0][0])
+#         elif mat[i][0][1] == "CHC" :
+#             lchc.append(mat[i][4][k]-mat[i][3][k])
+#             xchc.append(mat[i][0][0])
+#     lchc , lcck = np.array(lchc), np.array(lcck)
+#     q_80_chc , q_80_cck = np.percentile(lchc, 80) , np.percentile(lcck, 80)
+#     q_20_chc , q_20_cck = np.percentile(lchc, 20) , np.percentile(lcck, 20)
+#     data_chc , data_cck = [x for x in lchc if q_20_chc<= x <= q_80_chc] , [i for i in lcck if q_20_cck<= i <= q_80_cck]
+#     ecart_type_chc , ecart_type_cck = np.std(data_chc) , np.std(data_cck)
+#     lchc , lcck = lchc/ecart_type_chc, lcck /ecart_type_cck
+#     m_chc , m_cck = max(abs(lchc)) , max(abs(lcck))
+#     m1_chc, m1_cck = max(lchc), max(lcck)
+#     if m_chc == m1_chc :
+#         b1 = True
+#     else :
+#         b1 = False
+#     if m_cck == m1_cck:
+#         b2 = True
+#     else :
+#         b2 = False
+#     lchc , lcck = list(lchc) , list(lcck)
+#     if m_chc > m_cck :
+#         if b1 :
+#             v = xchc[lchc.index(m_chc)]
+#         elif b1 == False :
+#             v = xchc[lchc.index(-m_chc)]
+#             a = -m_chc
+#         if v in g_chc :
+#             histo_chc[g_chc.index(v)] += 1
+#         elif v not in g_chc:
+#             g_chc.append(v)
+#             histo_chc.append(1)
+#         print(f"VARRIABLE : {k}  MAX CHC : {m_chc}   PATIENT : {v}")
+#     elif m_chc < m_cck :
+#         if b2 :
+#             v = xcck[lcck.index(m_cck)]
+#         elif b2 == False :
+#             v = xcck[lcck.index(-m_cck)]
+#             a = -m_cck
+#         if v in g_cck :
+#             histo_cck[g_cck.index(v)] += 1
+#         elif v not in g_cck:
+#             g_cck.append(v)
+#             histo_cck.append(1)
+#         print(f"VARRIABLE : {k}  MAX CCK : {m_cck}   PATIENT : {v}")
+#
+# plt.bar(g_chc, histo_chc, color = "b", label='CHC')
+# plt.bar(g_cck, histo_cck, color = "r", label='CCK')
+# plt.legend()
+# plt.savefig(f"graph/fzsdtfbgvkcen")
+# plt.close()
+
+
+# plt.figure()
+# histo_chc , histo_cck = [],[]
+# g_chc, g_cck = [],[]
+# for k in range(107):
+#     lcck , lchc = [], []
+#     xcck, xchc = [], []
+#     for i in range(len(mat)):
+#         if mat[i][0][1] == "CCK" :
+#             lcck.append(mat[i][4][k]-mat[i][3][k])
+#             xcck.append(mat[i][0][0])
+#         elif mat[i][0][1] == "CHC" :
+#             lchc.append(mat[i][4][k]-mat[i][3][k])
+#             xchc.append(mat[i][0][0])
+#     lchc , lcck = np.array(lchc), np.array(lcck)
+#     q_80_chc , q_80_cck = np.percentile(lchc, 80) , np.percentile(lcck, 80)
+#     q_20_chc , q_20_cck = np.percentile(lchc, 20) , np.percentile(lcck, 20)
+#     data_chc , data_cck = [x for x in lchc if q_20_chc<= x <= q_80_chc] , [i for i in lcck if q_20_cck<= i <= q_80_cck]
+#     ecart_type_chc , ecart_type_cck = np.std(data_chc) , np.std(data_cck)
+#     lchc , lcck = lchc/ecart_type_chc, lcck /ecart_type_cck
+#     m_chc , m_cck = max(abs(lchc)) , max(abs(lcck))
+#     m1_chc, m1_cck = max(lchc), max(lcck)
+#     if m_chc == m1_chc :
+#         b1 = True
+#     else :
+#         b1 = False
+#     if m_cck == m1_cck:
+#         b2 = True
+#     else :
+#         b2 = False
+#     lchc , lcck = list(lchc) , list(lcck)
+#     if m_chc > m_cck :
+#         if b1 :
+#             v = xchc[lchc.index(m_chc)]
+#         elif b1 == False :
+#             v = xchc[lchc.index(-m_chc)]
+#             a = -m_chc
+#         if v in g_chc :
+#             histo_chc[g_chc.index(v)] += 1
+#         elif v not in g_chc:
+#             g_chc.append(v)
+#             histo_chc.append(1)
+#         print(f"VARRIABLE : {k}  MAX CHC : {m_chc}   PATIENT : {v}")
+#     elif m_chc < m_cck :
+#         if b2 :
+#             v = xcck[lcck.index(m_cck)]
+#         elif b2 == False :
+#             v = xcck[lcck.index(-m_cck)]
+#             a = -m_cck
+#         if v in g_cck :
+#             histo_cck[g_cck.index(v)] += 1
+#         elif v not in g_cck:
+#             g_cck.append(v)
+#             histo_cck.append(1)
+#         print(f"VARRIABLE : {k}  MAX CCK : {m_cck}   PATIENT : {v}")
+#
+# plt.bar(g_chc, histo_chc, color = "b", label='CHC')
+# plt.bar(g_cck, histo_cck, color = "r", label='CCK')
+# plt.legend()
+# plt.savefig(f"graph/fzsdtfbgvkcen")
+# plt.close()
+
+
+
+# for k in range(107):
+#         plt.figure()
+#         lcck , lchc = [], []
+#         xcck, xchc = [], []
+#         for i in range(len(mat)):
+#             if mat[i][0][1] == "CCK" :
+#                 lcck.append(mat[i][4][k]-mat[i][3][k])
+#                 xcck.append(mat[i][3][k]-mat[i][2][k])
+#             elif mat[i][0][1] == "CHC" :
+#                 lchc.append(mat[i][4][k]-mat[i][3][k])
+#                 xchc.append(mat[i][3][k]-mat[i][2][k])
+#         lchc , lcck = np.array(lchc), np.array(lcck)
+#         q_80_chc , q_80_cck = np.percentile(lchc, 80) , np.percentile(lcck, 80)
+#         q_20_chc , q_20_cck = np.percentile(lchc, 20) , np.percentile(lcck, 20)
+#         data_chc , data_cck = [x for x in lchc if q_20_chc<= x <= q_80_chc] , [i for i in lcck if q_20_cck<= i <= q_80_cck]
+#         ecart_type_chc , ecart_type_cck = np.std(data_chc) , np.std(data_cck)
+#         lchc , lcck = lchc/ecart_type_chc, lcck /ecart_type_cck
+#
+#         plt.scatter(xchc,lchc, color = "b", label='CHC')
+#         plt.scatter(xcck,lcck, color = "r", label='CCK')
+#         plt.legend()
+#         plt.savefig(f"graph/phi-phi/3-2_4-3/variable{k}")
+#         plt.close()
